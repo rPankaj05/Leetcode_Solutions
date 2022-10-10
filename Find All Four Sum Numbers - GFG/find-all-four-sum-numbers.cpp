@@ -28,7 +28,7 @@ class Solution{
                       tmp.push_back(arr[high]);
                        st.insert(tmp);
                        low++;
-                       high--;
+                      
                     }
                   else if(sum>k) high--;
                   else low++;
