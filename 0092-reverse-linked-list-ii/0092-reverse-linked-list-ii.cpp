@@ -34,8 +34,8 @@ public:
            cnt++;
         }
         temp2->next=curr;
-        if(temp!=NULL) temp->next=prev;
-        else head=prev;
+       if(temp!=NULL) temp->next=prev;
+       else   head=prev;
         return head;
     }
 };
