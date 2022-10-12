@@ -51,7 +51,7 @@ class Solution
     public:
     struct node *reverse (struct node *head, int k)
     { 
-        if(head==NULL) return NULL;
+       // if(head==NULL) return NULL;
         
         struct node* prev=NULL, * forward=NULL;
         struct node* curr=head;
