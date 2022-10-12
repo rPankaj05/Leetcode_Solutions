@@ -43,14 +43,14 @@ class Solution{
     {
          if(head == NULL || head->next==NULL) return head->data;
         
-       // if(head->next->next==NULL) return head->next->data;
+     
         
         Node* slow=head;
-        Node* fast=head;
+        Node* fast=head->next;
        
-        while(fast->next!=NULL){
+        while(fast!=NULL){
             fast=fast->next;
-            if(fast->next!=NULL) fast=fast->next;
+            if(fast!=NULL) fast=fast->next;
             slow=slow->next;
         }
    return slow->data; 
