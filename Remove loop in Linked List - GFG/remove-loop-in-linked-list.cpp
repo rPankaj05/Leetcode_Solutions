@@ -79,10 +79,6 @@ class Solution
     
     Node* solve(Node* head){
         
-       // if(head==NULL) return NULL;
-        
-      // if(head->next=head) return head;
-        
         Node* slow=head, *fast=head;
         
         while(fast!=NULL and fast->next!=NULL){
