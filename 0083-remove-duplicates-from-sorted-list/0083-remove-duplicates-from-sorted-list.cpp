@@ -20,8 +20,11 @@ public:
         
         while(curr!=NULL){
             if(mp[curr->val]==1){
+                ListNode* temp=curr;
                 curr=curr->next;
                 prev->next=curr;
+                temp->next=NULL;
+                delete temp;
             }
             
             else{
