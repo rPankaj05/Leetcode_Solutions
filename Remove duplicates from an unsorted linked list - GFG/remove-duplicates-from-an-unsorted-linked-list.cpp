@@ -54,11 +54,11 @@ class Solution
       while(curr!=NULL){
            
           if(mp[curr->data]==1) {
-              Node* temp=curr;
+             // Node* temp=curr;
               prev->next=curr->next;
               curr=curr->next;
-              temp->next=NULL;
-              delete temp;
+             // temp->next=NULL;
+             // delete temp;
           }
           
           else {
