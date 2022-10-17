@@ -18,6 +18,76 @@ struct Node {
 
 
 // } Driver Code Ends
+
+// Approch 1-- O(n) and O(1)
+
+  class Solution
+{
+    public:
+    Node *copyList(Node *head)
+    {
+        Node* clone=new Node(head->data);
+        
+        Node* curr1=head->next;
+        Node* curr2=clone;
+        
+        while(curr1!=NULL){
+            Node* tmp=new Node(curr1->data);
+            curr2->next=tmp;
+            curr2=tmp;
+            curr1=curr1->next;
+        }
+       
+       curr1=head;
+       curr2=clone;
+       
+      while(curr2!=NULL){
+          Node* temp1=curr1->next;
+          Node* temp2=curr2->next;
+          curr1->next=curr2;
+          curr2->next=temp1;
+          curr1=temp1;
+          curr2=temp2;
+      }
+      
+      curr1=head;
+      while(curr1!=NULL){
+        
+          if(curr1->next!=NULL){
+              if(curr1->arb!=NULL){
+                  curr1->next->arb=curr1->arb->next; 
+                }
+              else curr1->next->arb=curr1->arb;
+           }
+         
+          curr1=curr1->next->next;
+      }
+      
+      curr1=head;
+      curr2=clone;
+      
+      while(curr1!=NULL and curr2!=NULL){
+          curr1->next=curr2->next;
+          curr1=curr1->next;
+          
+          if(curr1!=NULL){
+              curr2->next=curr1->next;
+          }
+          curr2=curr2->next;
+      }
+
+      return clone;
+    }
+
+};
+
+
+
+
+/*
+
+approch 2--
+
 class Solution
 {
     public:
@@ -59,6 +129,9 @@ class Solution
     }
 
 };
+
+ */
+
 
 //{ Driver Code Starts.
 
