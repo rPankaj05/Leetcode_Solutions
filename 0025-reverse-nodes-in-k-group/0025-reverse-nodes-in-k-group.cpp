@@ -40,7 +40,7 @@ public:
          }
       
         if(forward!=NULL){
-            head->next=reverseKGroup(forward,k);
+            head->next=solve(forward,k,length-k);
         }
         
         return prev;
