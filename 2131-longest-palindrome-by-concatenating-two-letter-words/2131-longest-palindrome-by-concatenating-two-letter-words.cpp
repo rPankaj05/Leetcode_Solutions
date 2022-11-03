@@ -19,15 +19,15 @@ public:
             }
           else mp[it]++;
         }
-         int mxodd=0;
+       bool flag =false;
         for(auto it:mp1){
             if(it.second%2){
-            mxodd=max(mxodd,it.second);
+             flag=true;
             ans+=(it.second-1)*2;
             }
           else ans+=it.second*2;
         }
-        if(mxodd!=0) ans+=2;
+        if(flag) ans+=2;
         return ans;
     }
 };
