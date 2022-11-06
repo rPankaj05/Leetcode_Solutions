@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    vector<int> nextSmaller(vector<int> arr, int n){
+    vector<int> nextSmaller(vector<int> &arr, int n){
         
         vector<int> ans(n);
         stack<int> st;
@@ -16,7 +16,7 @@ public:
     }
     
     
-      vector<int> prevSmaller(vector<int> arr, int n){
+      vector<int> prevSmaller(vector<int> &arr, int n){
         
         vector<int> ans(n);
         stack<int> st;
