@@ -6,9 +6,9 @@ using namespace std;
 class Solution {
 	public:
 		string FirstNonRepeating(string A){
-		   string ans="";
+ string ans="";
 		   map<char,int> mp;
-		   queue<int> q;
+		   queue<char> q;
 		   for(int i=0;i<A.size();i++){
 		       char ch=A[i];
 		       mp[ch]++;
