@@ -18,8 +18,8 @@ public:
             for(int j=i;j<S.size();j++){
                 if(W[k]==S[j]){
                    
-                       if(k==0)
-                       i=j+1;
+                    //   if(k==0)
+                    //   i=j+1;
                        
                         k++;
                        S[j]='-1';
@@ -30,6 +30,7 @@ public:
             
             if(k==W.size()) cunt++;
             else break;
+            i++;
       }
         
      return cunt;  
