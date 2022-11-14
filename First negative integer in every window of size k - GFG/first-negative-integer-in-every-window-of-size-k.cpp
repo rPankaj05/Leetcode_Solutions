@@ -33,14 +33,14 @@ vector<long long> printFirstNegativeInteger(long long int A[],
                                              long long int n, long long int k) {
         vector<long long int> ans;
         deque<long long int> q;
-        for(int i=0;i<k;i++) if(A[i]<0) q.push_back(i);
-        if(q.size()>0) ans.push_back(A[q.front()]);
-        else ans.push_back(0);
-        for(int i=k;i<n;i++){
+
+        for(int i=0;i<n;i++){
             if(!q.empty() and i-q.front()>=k) q.pop_front();
             if(A[i]<0) q.push_back(i);
+            if(i>=k-1){
              if(q.size()>0) ans.push_back(A[q.front()]);
              else ans.push_back(0);
+            }
         }
         return ans;
  }
