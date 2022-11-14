@@ -17,19 +17,16 @@ public:
             int k=0;
             for(int j=i;j<S.size();j++){
                 if(W[k]==S[j]){
-                   
-                    //   if(k==0)
-                    //   i=j+1;
-                       
                         k++;
                        S[j]='-1';
                 }
+                
                 if(k==W.size())
                     break;
          }
             
             if(k==W.size()) cunt++;
-            else break;
+           // else break;
             i++;
       }
         
