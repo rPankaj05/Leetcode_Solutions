@@ -30,17 +30,23 @@ struct Node {
 }; */
 
 class Solution {
+ 
+    void solve(Node* root,vector<int> &ans){
+        if(root==  NULL) return;
+         
+        solve(root->left,ans);
+        ans.push_back(root->data);
+        solve(root->right,ans);
+     
+    }
     
   public:
     // Function to return a list containing the inorder traversal of the tree.
     vector<int> inOrder(Node* root) {
-         vector<int> ans;
-        if(root == NULL)return ans;
+        vector<int> ans;
+         solve(root,ans);
+         return ans;
         
-        inOrder(root->left);
-        cout << root->data << " ";
-        inOrder(root->right);
-        return ans;
     }
 };
 
