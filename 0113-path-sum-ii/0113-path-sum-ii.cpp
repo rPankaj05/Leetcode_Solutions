@@ -18,18 +18,18 @@ class Solution {
         if(root==NULL) return;
         
         path.push_back(root->val);
-      
+        k-=root->val;
         
         if(root->left==NULL and root->right==NULL){
-            if(k-root->val==0) ans.push_back(path);
+            if(k==0) ans.push_back(path);
             path.pop_back();
             return ;
         }
         
        
         
-        solve(root->left,k-root->val,path,ans);
-        solve(root->right,k-root->val,path,ans);
+        solve(root->left,k,path,ans);
+        solve(root->right,k,path,ans);
         
        path.pop_back();
         
