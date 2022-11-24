@@ -124,9 +124,9 @@ class Solution{
       
         
           
-        if(lh==1 and  rh==1 ) return 1;
+        if(lh==0 or rh==0 ) return 0;
           
-          return 0;
+          return 1;
        
     }
 };
