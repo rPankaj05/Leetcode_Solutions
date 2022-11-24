@@ -23,9 +23,9 @@ public:
         
         if(sum!=root->val) return 0;
         
-        if(!checkTree(root->left)  or !checkTree(root->right)) return 0;
+        if(checkTree(root->left)  and checkTree(root->right)) return 1;
         
-        return 1;
+        return 0;
         
     }
 };
