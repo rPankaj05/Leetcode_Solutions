@@ -113,6 +113,8 @@ class Solution{
        int sum=0 ; 
        if(root->left)  sum+=root->left->data;
        if(root->right) sum+=root->right->data;
+       
+       if(sum!=root->data) return 0;
         
         int lh= isSumProperty(root->left);
         int rh= isSumProperty(root->right);
@@ -122,7 +124,7 @@ class Solution{
       
         
           
-        if(lh==1 and  rh==1 and sum==root->data) return 1;
+        if(lh==1 and  rh==1 ) return 1;
           
           return 0;
        
