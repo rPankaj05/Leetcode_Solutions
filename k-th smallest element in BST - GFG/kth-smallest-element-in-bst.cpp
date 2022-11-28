@@ -107,6 +107,7 @@ class Solution {
         
         return solve(root->right,k);
     
+       return -1;
     }
     
     
@@ -114,7 +115,7 @@ class Solution {
     // Return the Kth smallest element in the given BST
     int KthSmallestElement(Node *root, int k) {
         int ans=solve(root,k);
-        if(k>0) return -1;
+        //if(k>0) return -1;
         return ans;
        
     }
