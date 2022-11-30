@@ -15,27 +15,28 @@ class Solution{
     //Function to rearrange  the array elements alternately.
     void rearrange(long long *a, int n) 
     { 
-    	 long long i=0, j=n-1;
+    	
         long long  mnidx=0, mxidx=n-1;
-        long long  me=a[j]+1;
+        long long  me=a[n-1]+1;
         
-        while(i<n){
-            long long temp=0;
+        for(int i=0;i<n;i++){
+            
             if(i%2==0)
-            {
-                 temp=(a[i]+a[mxidx]%me *me);
+                {
+                 a[i]=(a[i]+a[mxidx]%me *me);
                  mxidx--;
-            }
-        else  {
-                 temp=(a[i]+a[mnidx]%me *me);
+                }
+                
+           else  {
+                 a[i]=(a[i]+a[mnidx]%me *me);
                  mnidx++;
+           }
+    
         }
-        a[i]=temp;
-        i++;
-        }
+        
     for(int i=0;i<n;i++){
-        a[i]=a[i]/me;
-    }
+        a[i]/=me;
+     }
     	 
     }
 };
