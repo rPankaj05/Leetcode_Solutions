@@ -76,42 +76,27 @@ struct Node
 class Solution
 {
     public:
-    
-    Node* solve(Node* head){
+    //Function to remove a loop in the linked list.
+    void removeLoop(Node* head)
+    {
         
-        Node* slow=head, *fast=head;
-        
+        Node* slow=head, *fast=head; Node* prev=NULL;
         while(fast!=NULL and fast->next!=NULL){
-            slow=slow->next;
+            prev=fast->next;
             fast=fast->next->next;
+            slow=slow->next;
             if(slow==fast){
                 slow=head;
                 while(slow!=fast){
                     slow=slow->next;
+                    prev=fast;
                     fast=fast->next;
                 }
-               return slow;
-            }
-           
+             prev->next=NULL;
+            return;
+         }
         }
-        return NULL;
-    }
-    
-    
-    void removeLoop(Node* head)
-    {
-       Node* slow=solve(head);
-       Node* curr=slow;
-        
-       if(curr==NULL ) return;
-       
-       while(curr->next!=slow){
-           curr=curr->next;
-          
-       }
-       
-       curr->next=NULL;
-       return;
+        return;
     }
 };
 
