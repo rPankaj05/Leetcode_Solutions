@@ -107,28 +107,20 @@ struct Node
 class Solution
 {
     public: 
-    
-    Node* prev=NULL;
-    
+    Node* head=NULL;
     Node * bToDLL(Node *root)
     {
         if(root==NULL) return NULL;
         
-        Node* head=bToDLL(root->left);
-        
-        if(prev==NULL) head=root;
-       
-        else {
-            root->left=prev;
-            prev->right=root;
-        }
-        
-        prev=root;
-        
         bToDLL(root->right);
         
-        return head;
+        root->right=head;
+        if(head!=NULL) head->left=root;
+        head=root;
         
+        bToDLL(root->left);
+        
+        return head;
     }
 };
 
