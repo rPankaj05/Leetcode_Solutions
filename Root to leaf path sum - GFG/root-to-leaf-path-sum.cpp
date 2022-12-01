@@ -92,14 +92,16 @@ class Solution
     
     void solve(Node * root, int s, bool &ans){
         if(root==NULL) return;
+             s=s-root->data;
+         solve(root->left,s,ans);
         
-        s=s-root->data;
+     
         
         if(root->left==NULL and root->right==NULL) {
             if(s==0) ans=true;
         }
         
-        solve(root->left,s,ans);
+       
         solve(root->right,s,ans);
         
     }
