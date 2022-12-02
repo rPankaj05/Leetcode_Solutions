@@ -95,7 +95,7 @@ class Solution {
         
         maxi=max(maxi,right+left+root->data);
         
-        return max(0,max(left,right)+root->data);
+        return max(left,right)+root->data;
         
     }
     
