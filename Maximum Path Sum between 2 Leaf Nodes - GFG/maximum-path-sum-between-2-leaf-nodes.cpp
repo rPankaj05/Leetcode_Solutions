@@ -95,7 +95,7 @@ class Solution {
     
      int solve(Node* root,int &ans){
         
-         if(root==NULL) return 0;
+         if(root==NULL) return INT_MIN;
          
          if(root->left==NULL and root->right==NULL) return root->data;
          
@@ -104,11 +104,9 @@ class Solution {
          
          if(root->left and root->right) {
             ans=max(ans,l+r+root->data) ;
-            return max(l,r)+root->data;
-         }
-         
-        if(root->left==NULL) return r+root->data;
-        else return l+root->data;
+          }
+          
+          return max(l,r)+root->data;
      }
 
 
