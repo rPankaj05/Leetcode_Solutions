@@ -9,44 +9,43 @@ using namespace std;
 
 class Solution {
     
-    private:
-      int maxElement(vector<int> a,int n){
-    int mx=-1;
-    for(int i=0;i<n;i++) mx=max(mx,a[i]);
-    return mx;
-}
-bool isPossible(vector<int> a, int n, int mid,int k){
-    int cows=1;
-    int lastPos=a[0];
-    for(int i=0;i<n;i++){
-        if((a[i]-lastPos)>=mid) {
-            cows++;
-            if(cows==k) return true;
-            lastPos=a[i];
+    private: 
+    
+    bool isPossible(vector<int> a, int n, int k,int mid){
+        int cow=1;
+        int lastpos=a[0];
+        for(int i=0;i<n;i++){
+            if((a[i]-lastpos)>=mid) {
+                cow++;
+                if(cow==k) return true;
+                lastpos=a[i];
+            }
         }
+        return false;
     }
-    return false;
-}
+    
+    
     
 public:
 
     int solve(int n, int k, vector<int> &a) {
-    
-       sort(a.begin(),a.end());
-    
-    int start=0;
-    int end=maxElement(a,n);
-    int mid=0;
-    int ans=0;
-    while(start<=end){
-        mid=(start+end)/2;
-        if(isPossible(a,n,mid,k)){
-           ans=mid;
-            start=mid+1;
-        }
-        else end=mid-1;
-    }
- return ans;
+      
+      sort(a.begin(),a.end());
+      
+      int start=1;
+      int end=a[n-1];
+      int ans=0;
+      int mid=0;
+      while(start<=end){
+           mid=(start+end)/2;
+          if(isPossible(a,n,k,mid)){
+              ans=mid;
+              start=mid+1;
+          }
+          else end=mid-1;
+      }
+        
+        return ans;
     }
 };
 
