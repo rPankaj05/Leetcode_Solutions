@@ -96,21 +96,16 @@ struct Node {
 // return the Kth largest element in the given BST rooted at 'root'
 class Solution
 {
-    void solve(Node* root,int &ans, int &k){
-        if(root==NULL) return ;
-        solve(root->right,ans,k);
-        k--;
-        if(k==0) ans=root->data;
-        solve(root->left,ans,k);
-    }
-    
-    
     public:
-    int kthLargest(Node *root, int k)
+    int kthLargest(Node *root, int &k)
     {
-        int ans=0;
-        solve(root,ans,k);
-        return ans;
+         if(root==NULL) return -1;
+         int r=kthLargest(root->right,k);
+         if(r!=-1) return r;
+         k--;
+         if(k==0) return root->data;
+         return kthLargest(root->left,k);
+         
     }
 };
 
