@@ -32,7 +32,7 @@ public:
       
       sort(a.begin(),a.end());
       
-      int start=1;
+      int start=0;
       int end=a[n-1];
       int ans=0;
       int mid=0;
