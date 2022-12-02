@@ -104,6 +104,7 @@ class Solution {
          
          if(root->left and root->right) {
             ans=max(ans,l+r+root->data) ;
+            
           }
           
           return max(l,r)+root->data;
@@ -116,8 +117,8 @@ public:
         int ans=INT_MIN;
        int res=solve(root,ans);
         
-        if(root->left && root->right)
-            return ans;
+         if(root->left && root->right)
+             return ans;
             
          return max(ans, res);
     }
