@@ -7,7 +7,8 @@ using namespace std;
 class Solution{
     public:
     string rearrange (string S, int N)
-    {  map<char,int> mp;
+    {
+        map<char,int> mp;
        for(auto it: S) mp[it]++;
        
         string vow="";
@@ -32,7 +33,7 @@ class Solution{
         
         string ans="";
         
-        if(n>=m){
+        if(n>m){
             int i=0;
             while(i<m){
                 ans.push_back(vow[i]);
@@ -42,7 +43,7 @@ class Solution{
             if(i<n) ans.push_back(vow[i]);
         }
         
-        else {
+        else if(m>n){
             int i=0;
              while(i<n){
                 ans.push_back(cons[i]);
@@ -51,7 +52,24 @@ class Solution{
             }
             if(i<m) ans.push_back(cons[i]);
         }
-        
+        else {
+            if(vow[0]<cons[0]){
+              int i=0;
+            while(i<m){
+                ans.push_back(vow[i]);
+                ans.push_back(cons[i]);
+                i++;
+              }
+            }
+          else{
+               int i=0;
+             while(i<n){
+                ans.push_back(cons[i]);
+                ans.push_back(vow[i]);
+                i++;
+            }
+          }
+        }
         return ans;
     }
 };
