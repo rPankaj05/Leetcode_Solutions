@@ -13,8 +13,8 @@ class Solution {
      void solve(TreeNode* root, int &ans, int low,int high){
          if(root==NULL) return ;
          if(root->val<=high and root->val>=low) ans+=root->val;
-         solve(root->left,ans,low,high);
-         solve(root->right,ans,low,high);
+         if(low<root->val) solve(root->left,ans,low,high);
+         if(root->val<high) solve(root->right,ans,low,high);
      }
     
 public:
