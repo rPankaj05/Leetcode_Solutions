@@ -17,10 +17,12 @@ class Solution {
         
         if(root==NULL) return ;
         
+        ans=max(ans,max(mx-root->val,root->val-mn));
+        
         if(root->val<mn) mn=root->val;
         if(root->val>mx) mx=root->val;
         
-        ans=max(ans,abs(mx-mn));
+        
         
         solve(root->left,mn,mx,ans);
         solve(root->right,mn,mx,ans);
@@ -33,12 +35,9 @@ public:
     int maxAncestorDiff(TreeNode* root) {
        
         if(root== NULL || root->left==NULL and root->right==NULL) return 0;
-        
-        int mx=root->val;
-        int mn=root->val;
-        
+           
         int ans=0;
-        solve(root,mn,mx,ans);
+        solve(root,root->val,root->val,ans);
         
         return ans;
         
