@@ -131,8 +131,8 @@ void solve(Node* root, int mx, int &ans){
     ans=max(ans,mx-root->data);
     mx=max(mx,root->data);
     
-    if(root->left) solve(root->left,mx,ans);
-    if(root->right) solve(root->right,mx,ans);
+     solve(root->left,mx,ans);
+     solve(root->right,mx,ans);
     
  }
 
