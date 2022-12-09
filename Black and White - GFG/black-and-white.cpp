@@ -47,7 +47,7 @@ long long numOfWays(int n, int m)
     for(int i=0;i<n;i++){
         for(int j=0;j<m;j++){
             int inValidPos=inValid(i,j,n,m);
-            ans=((ans%mod)+(totPos-1-inValidPos)%mod)%mod;
+            ans=(ans+totPos-1-inValidPos)%mod;
         }
     }
     
