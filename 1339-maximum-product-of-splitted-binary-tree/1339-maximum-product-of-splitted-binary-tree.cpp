@@ -12,7 +12,7 @@
 
 class Solution {
 public:
-    long long int currsum = 0;
+    long long int currSum = 0;
     long long int totSum = 0;
     long long int ans = 0;
     long long int m = 1e9 + 7;
@@ -30,9 +30,11 @@ public:
      {
         if(root==NULL) return 0;
         
-     currsum=root->val%m+(solve(root->right))%m +(solve(root->left))%m;
-        ans = max(ans,currsum*(totSum - currsum));
-        return currsum;
+        long long leftSum=solve(root->left)%m;
+        long long rightSum=solve(root->right)%m;
+       currSum=root->val%m+(leftSum)%m +(rightSum)%m;
+        ans = max(ans,currSum*(totSum - currSum));
+        return currSum;
     }
   
     
