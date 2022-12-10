@@ -33,7 +33,7 @@ public:
         long long leftSum=solve(root->left)%m;
         long long rightSum=solve(root->right)%m;
      
-        currSum=root->val+(leftSum) +(rightSum);
+        currSum=root->val+leftSum +rightSum;
        
         ans = max(ans,currSum*(totSum - currSum));
       
