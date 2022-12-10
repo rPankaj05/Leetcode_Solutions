@@ -29,11 +29,8 @@ public:
     int  solve(TreeNode* root)
      {
         if(root==NULL) return 0;
-        
-        long long leftSum=solve(root->left);
-        long long rightSum=solve(root->right);
      
-        currSum=root->val+leftSum +rightSum;
+        currSum=root->val+solve(root->left) +solve(root->right);
        
         ans = max(ans,currSum*(totSum - currSum));
       
