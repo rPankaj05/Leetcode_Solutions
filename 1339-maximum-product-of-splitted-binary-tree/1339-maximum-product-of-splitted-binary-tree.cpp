@@ -30,8 +30,8 @@ public:
      {
         if(root==NULL) return 0;
         
-        long long leftSum=solve(root->left)%m;
-        long long rightSum=solve(root->right)%m;
+        long long leftSum=solve(root->left);
+        long long rightSum=solve(root->right);
      
         currSum=root->val+leftSum +rightSum;
        
