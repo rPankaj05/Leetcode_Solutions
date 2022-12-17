@@ -13,7 +13,7 @@ class Solution {
         long long int n=N;
         int cnt=1;
         long long int ans=n;
-        while(n-->2){
+        while(n-->1){
             if(__gcd(ans,n)==1){
                 ans*=n;
                 cnt++;
