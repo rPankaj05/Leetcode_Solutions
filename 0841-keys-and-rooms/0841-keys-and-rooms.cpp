@@ -5,23 +5,23 @@ public:
         mp[0]=true;
         for(int i=1;i<rooms.size();i++) mp[i]=false;
        
-        stack<int> st;
+        queue<int> q;
        
         for(int i=0;i<rooms[0].size();i++){
             int tmp=rooms[0][i];
             if(mp[tmp]==false) {
-                st.push(tmp);
+                q.push(tmp);
                 mp[tmp]=true;
             }
          }
         
-        while(!st.empty()){
-            int t=st.top();
-            st.pop();
+        while(!q.empty()){
+            int t=q.front();
+            q.pop();
             for(int i=0;i<rooms[t].size();i++){
                 int tmp=rooms[t][i];
                 if(mp[tmp]==false){
-                    st.push(tmp);
+                    q.push(tmp);
                     mp[tmp]=true;
                 }
             }
