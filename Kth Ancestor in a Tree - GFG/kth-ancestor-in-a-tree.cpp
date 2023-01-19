@@ -112,6 +112,10 @@ struct Node
 */
 // your task is to complete this function
 
+
+//****************************************
+
+/*
 void solve(Node* root,int node,vector<int> &path,vector<int> &ans){
     if(root==NULL) return ;
    
@@ -128,9 +132,6 @@ void solve(Node* root,int node,vector<int> &path,vector<int> &ans){
     
 }
 
-
-
-
 int kthAncestor(Node *root, int k, int node)
 {
     vector<int> ans;
@@ -142,5 +143,48 @@ int kthAncestor(Node *root, int k, int node)
      
    if(k>=ans.size()) return -1;
    else return ans[k];
+    
+}
+
+*/
+//***********************************************************
+
+
+Node* solve(Node* root, int &k,int n){
+  
+    if(root==NULL) return NULL;
+    
+    if(root->data==n) return root;
+    
+    Node* leftAns=solve(root->left,k,n);
+    Node* rightAns=solve(root->right,k,n);
+    
+    if(leftAns!=NULL and rightAns==NULL){
+        k--;
+        if(k<=0) {
+            k=INT_MAX;
+            return root;
+        }
+        return leftAns;
+    }
+    
+    if(rightAns!=NULL and leftAns==NULL) {
+        k--;
+        if(k<=0) {
+            k=INT_MAX;
+            return root;
+       }
+       return rightAns;
+    }
+    
+    return NULL;
+}
+
+
+int kthAncestor(Node *root, int k, int node)
+{
+    Node* ans=solve(root,k,node);
+    if(ans==NULL || ans->data==node) return -1;
+    else return ans->data;
     
 }
