@@ -18,10 +18,8 @@ class Solution{
     public:
     int carpetBox(int A, int B, int C, int D){
       
-       if(A>B)  swap(A,B);
-       if(C>D)  swap(C,D);
        
-       if(A<=C and B<=D) return 0;
+       if((A<=C and B<=D) || (B<=C and A<=D)) return 0;
        
        else if(A>C and A>D) return 1+carpetBox(A/2,B,C,D) ;
        
