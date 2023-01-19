@@ -48,10 +48,9 @@ class Solution
       
        Node* rightAns=lca(root->right,n1,n2);
        
-       if(leftAns!=NULL and rightAns!=NULL) return root;
-       if(leftAns!=NULL and rightAns==NULL) return leftAns;
-       if(leftAns==NULL and rightAns!=NULL) return rightAns;
-       else return NULL;
+       if(leftAns==NULL) return rightAns;
+       else if(rightAns==NULL) return leftAns;
+       else return root;
        
     }
 };
