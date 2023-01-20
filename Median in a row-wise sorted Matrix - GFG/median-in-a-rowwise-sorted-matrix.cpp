@@ -11,18 +11,20 @@ using namespace std;
 class Solution{   
 public:
     int median(vector<vector<int>> &matrix, int R, int C){
-        // code here 
-         int low=1, high=2000;
-        while(low<=high){
+        // code here     
+        int low=1; 
+        int high=2000;
+        while(low<high){
             int mid=(low+high)/2;
-            int x=0;
+            int cnt=0;
             for(int i=0;i<R;i++){
                 int ub=(int)(upper_bound(matrix[i].begin(),matrix[i].end(),mid)-matrix[i].begin());
-                x+=ub;
+                cnt+=ub;
             }
-           if(x<=((R*C)/2)) low=mid+1;
-           else high=mid-1;
+            if(cnt<((R*C+1)/2)) low=mid+1;
+            else high=mid;
         }
+        return low;
     }
 };
 
