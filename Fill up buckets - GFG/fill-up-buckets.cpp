@@ -11,12 +11,12 @@ class Solution{
 public:
     int totalWays(int n, vector<int>a) {
         sort(a.begin(),a.end());
-        int mod=1e9+7;
-        long long ans=a[0];
-        for(int i=1;i<n;i++){
+        long long mod=1e9+7;
+        long long ans=1;
+        for(int i=0;i<n;i++){
             ans=(ans * (a[i]-i))%mod;
         }
-        return ans;
+        return ans%mod;
     }
 };
 
