@@ -12,9 +12,7 @@ class Solution {
   public:
     long long solve(int n, int k, vector<long long> arr) {
         
-        if(k>=n){
-            return arr[n-1];
-        }
+     
         vector<long long> pfsum=arr;
         long long sum=0;
         for(auto x:arr){
