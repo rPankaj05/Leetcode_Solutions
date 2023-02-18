@@ -99,6 +99,11 @@ bool compare(Node* a, Node* b, vector<pair<int, int>>& mismatch) {
     struct Node *left, *right;
 };*/
 
+/* method 1.    Time nlon(n) and space (n)
+    
+    steps i-  inorder ko array me dalkar sort krke vapas se 
+               inorder aray se sare elemnt nodes me daal diya tha 
+    
 class Solution {
     vector<int> inorder;
     void solve(struct Node* root){
@@ -136,6 +141,48 @@ class Solution {
        return root;
     }
 };
+
+*/ 
+
+class Solution {
+    
+    struct Node* prev;
+    struct Node *first, *mid, *last;
+    
+    void solve(struct Node* root){
+        
+        if(root==NULL) return ;
+        
+        solve(root->left);
+        
+        if(prev!=NULL and prev->data > root->data){
+            if(first==NULL) { first=prev; mid=root;}
+            else last=root;
+        }
+        
+        prev=root;
+        solve(root->right);
+        
+    }
+    
+ public:
+    struct Node *correctBST(struct Node *root) {
+       
+        first=mid=last=NULL;
+        
+        prev= new struct Node (INT_MIN);
+        
+        solve(root);
+        
+        if(first and last) swap(first->data,last->data);
+        else swap(first->data,mid->data);
+        
+        return root;
+        
+        
+    }
+};
+
 
 //{ Driver Code Starts.
 
