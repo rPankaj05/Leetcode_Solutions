@@ -15,22 +15,22 @@ class Solution {
     
     bool ans=false;
     
-    void solve(TreeNode* root, int sum,int targetSum){
+    void solve(TreeNode* root,int targetSum){
         if(root==NULL) return ;
         
-        sum=sum+root->val;
+        targetSum-=root->val;
        
         if(root->left==NULL and root->right==NULL){
-            if(sum==targetSum) ans=true;
+            if(targetSum==0) ans=true;
         }
         
-        solve(root->left,sum,targetSum);
-        solve(root->right,sum,targetSum);
+        solve(root->left,targetSum);
+        solve(root->right,targetSum);
     }
     
 public:
     bool hasPathSum(TreeNode* root, int targetSum) {
-       solve(root,0,targetSum);
+       solve(root,targetSum);
         return ans;
     }
 };
