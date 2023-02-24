@@ -13,14 +13,21 @@ class Solution {
       
         grid[x][y] = '0';
         
-        solve(grid,m,n,x+1,y); 
-        solve(grid,m,n,x,y+1);  
-        solve(grid,m,n,x-1,y);  
-        solve(grid,m,n,x,y-1); 
-        solve(grid,m,n,x-1,y-1); 
-        solve(grid,m,n,x+1,y-1); 
-        solve(grid,m,n,x+1,y+1); 
-        solve(grid,m,n,x-1,y+1); 
+        int dx[8]={0,1,0,-1,1,-1,1,-1};
+        int dy[8]={1,0,-1,0,1,1,-1,-1};
+        
+        for(int i=0;i<8;i++){
+            solve(grid,m,n,x+dx[i],y+dy[i]);
+        }
+        
+        // solve(grid,m,n,x+1,y); 
+        // solve(grid,m,n,x,y+1);  
+        // solve(grid,m,n,x-1,y);  
+        // solve(grid,m,n,x,y-1); 
+        // solve(grid,m,n,x-1,y-1); 
+        // solve(grid,m,n,x+1,y-1); 
+        // solve(grid,m,n,x+1,y+1); 
+        // solve(grid,m,n,x-1,y+1); 
         
     }
     
