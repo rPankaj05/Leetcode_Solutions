@@ -6,6 +6,8 @@ using namespace std;
 
 // } Driver Code Ends
 //User function template for C++
+
+/* Recursion + Memoization
 class Solution{
     
     private:
@@ -25,13 +27,34 @@ class Solution{
           return dp[n];
       }
     
-    
 public:	
 	// calculate the maximum sum with out adjacent
 	int findMaxSum(int *arr, int n) {
 	    vector<int> dp(n,-1);
 	    return solve(arr,n-1,dp);
 	
+	}
+};
+
+
+*/
+ // Tabulation  
+
+class Solution{
+public:	
+	// calculate the maximum sum with out adjacent
+	int findMaxSum(int *arr, int n) {
+	   
+	    vector<int> dp(n,0);
+	    dp[0]=arr[0];
+	    
+	    for(int i=1;i<n;i++){
+	        int incAns=dp[i-2]+arr[i];
+	        int exclAns=dp[i-1];
+	        dp[i]=max(incAns,exclAns);
+	    }
+	    
+	    return dp[n-1];
 	}
 };
 
