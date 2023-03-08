@@ -3,8 +3,8 @@ public:
     int minEatingSpeed(vector<int>& piles, int h) {
         int start=1;
         int end=INT_MIN;
-        for(auto it:piles) end=max(end,it)+1;
-        int ans=0;
+        for(auto it:piles) end=max(end,it);
+        int ans=end;
         while(start<end){
             int mid=(start+end)/2;
             int cnt=0;
