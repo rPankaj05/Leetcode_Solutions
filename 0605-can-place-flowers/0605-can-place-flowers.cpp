@@ -13,9 +13,8 @@ public:
             else return false;
         }
         
-        int zero=0;
-        if(v[0]==0 and v[1]==0) k--;
-        for(int i=1;i<n;i++){
+        int zero=1;
+        for(int i=0;i<n;i++){
             if(v[i]==0) zero++;
             else {
               if(zero>0)  k-=(zero-1)/2;
