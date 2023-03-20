@@ -12,11 +12,8 @@ class Solution{
 public:
     int minimumTime(int n,int cur,vector<int> &pos,vector<int> &time){
         int ans=INT_MAX;
-        for(int i=0;i<n;i++){
-            int dis=abs(cur-pos[i]);
-            int t=dis*time[i];
-            ans=min(ans,t);
-        }
+        for(int i=0;i<n;i++)
+            ans=min(ans,abs(cur-pos[i]) * time[i]);
         return ans;
     }
 };
