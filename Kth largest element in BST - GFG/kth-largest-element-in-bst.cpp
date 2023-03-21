@@ -93,21 +93,44 @@ struct Node {
 };
 */
 
+/*
 // return the Kth largest element in the given BST rooted at 'root'
 class Solution
-{
-    public:
-    int kthLargest(Node *root, int &k)
-    {
-         if(root==NULL) return -1;
-         int r=kthLargest(root->right,k);
-         if(r!=-1) return r;
+{   private:
+     
+     void solve(Node* root, int &k,int &ans){
+         if(root==NULL) return ;
+         solve(root->right,k,ans);
          k--;
-         if(k==0) return root->data;
-         return kthLargest(root->left,k);
-         
+         if(k==0) ans=root->data;
+         solve(root->left,k,ans);
+     }
+
+    public:
+    int kthLargest(Node *root, int k)
+    {   int ans;
+        solve(root,k,ans);
+        return ans;
     }
 };
+*/
+
+class Solution
+{   
+    public:
+    int kthLargest(Node *root, int &k)
+    {   
+        if(root==NULL) return -1;
+        int ans= kthLargest(root->right,k);
+        if(ans!=-1) return ans;
+        k--;
+        if(k==0) return root->data;
+        return kthLargest(root->left,k);
+        
+    }
+};
+
+
 
 //{ Driver Code Starts.
 
