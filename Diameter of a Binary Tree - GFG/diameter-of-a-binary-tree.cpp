@@ -91,53 +91,25 @@ struct Node
     }
 }; */
 
-/*
 class Solution {
-    private:
-    int maxDepth(Node* root){
-        if(root==NULL) return 0;
-        int lh=maxDepth(root->left);
-        int rh=maxDepth(root->right);
-        return 1+max(lh,rh);
-    }
-    
+    private: 
+      int solve(Node* root, int &ans){
+          if(root==NULL) return 0;
+          int l=solve(root->left,ans);
+          int r=solve(root->right,ans);
+          ans=max(ans,l+r+1);
+          return max(l,r)+1;
+      }
+      
   public:
     // Function to return the diameter of a Binary Tree.
     int diameter(Node* root) {
-       if(root==NULL) return 0;
-       int op1=diameter(root->left);
-       int op2=diameter(root->right);
-       int op3=maxDepth(root->left)+maxDepth(root->right)+1;
-       int ans=max(op1,max(op2,op3));
-       return ans;
-    }
-};
-*/
-
-class Solution {
-    
-    int solve(Node* root,int &ans){
         if(root==NULL) return 0;
-        
-        int lh=solve(root->left,ans);
-        int rh=solve(root->right,ans);
-        
-        ans=max(ans,lh+rh+1);
-        
-        return 1+max(lh,rh);
-    }
-    
-    
-  public:
-    // Function to return the diameter of a Binary Tree.
-    int diameter(Node* root) {
-       if(root==NULL) return 0;
-       int ans=0;
-       solve(root,ans);
-       return ans;
+        int ans=0;
+        solve(root,ans);
+        return ans;
     }
 };
-
 
 //{ Driver Code Starts.
 
