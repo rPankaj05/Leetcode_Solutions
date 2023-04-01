@@ -10,17 +10,9 @@ using namespace std;
 class Solution {
   public:
     long long int minOperations(int N) {
-        long long ans=0;
-        int tmp=N/2;
-        if(N%2==0) {
-            ans=tmp;
-            ans*=ans;
-         }
-        else {
-            ans=tmp;
-            ans*=(tmp+1);
-        }
-       return ans;
+        long long tmp=N/2;
+        if(N%2==0)  return tmp*tmp;
+        else  return tmp*(tmp+1);
     }
 };
 
