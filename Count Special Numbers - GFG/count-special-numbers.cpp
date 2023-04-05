@@ -17,16 +17,13 @@ class Solution {
             if(it.second>1) ans+=it.second;
             else{
                 for(int i=0;i<n;i++){
-                  
                     if(it.first!=arr[i] and it.first%arr[i]==0) {
                         ans++;
                         break;
-                        
+                      }
                     }
-                  
-             }
-         }   
-        }
+                }   
+            }
         return ans;
     }
 };
