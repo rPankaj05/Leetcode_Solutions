@@ -18,48 +18,34 @@ struct Node {
 
 
 // } Driver Code Ends
+/*
+Tree Node
+struct Node {
+    int data;
+    Node *left;
+    Node *right;
 
+    Node(int val) {
+        data = val;
+        left = right = NULL;
+    }
+};
+*/
 
 class Solution
 {
-   int findceil(Node* root, int k){
-      int ans=-1;
-    while(root!=NULL){
-        if(root->data>=k) 
-          { ans=root->data;
-             root=root->left;
-          }
-        else 
-        root=root->right;
-    }
-    return ans;
-   }
-    
-    int findfloor(Node* root, int k){
-      int ans=-1;
-    while(root!=NULL){
-        if(root->data<=k) 
-          { ans=root->data;
-             root=root->right;
-          }
-        else 
-        root=root->left;
-    }
-    return ans;
-   }
-
     public:
-    
+    //Function to find the least absolute difference between any node
+	//value of the BST and the given integer.
     int minDiff(Node *root, int k)
-    {   
-        int c=findceil(root,k);
-        int f= findfloor(root,k);
-        
-        if(c==-1) return abs(f-k);
-        if(f==-1)  return abs(c-k);
-        
-        return min((c-k),(k-f));
-       
+    {
+        int ans=INT_MAX;
+       while(root!=NULL){
+           ans=min(ans,abs(k-root->data));
+           if(root->data<k) root=root->right;
+           else root=root->left;
+       }
+       return ans;
     }
 };
 
