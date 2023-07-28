@@ -13,6 +13,27 @@ struct Node {
     }
 };
 // Function to Build Tree
+
+
+// } Driver Code Ends
+//Function to find the lowest common ancestor in a BST.
+class Solution{
+    public:
+        Node* LCA(Node *root, int n1, int n2)
+        {
+            while(root!=NULL){
+       if(root->data<n1 and root->data<n2) root=root->right;
+       else if(root->data>n1 and root->data>n2) root=root->left;
+       else return root;
+   }
+   return NULL;
+        }
+
+};
+
+
+//{ Driver Code Starts.
+
 Node* buildTree(string str)
 {   
     // Corner Case
@@ -76,7 +97,6 @@ Node* buildTree(string str)
     return root;
 }
 
-Node* LCA(Node * root , int l , int h);
 
 int main()
 {
@@ -91,24 +111,10 @@ int main()
 		scanf("%d ",&l);
 		scanf("%d ",&h);
         Node* root = buildTree(s);
-        cout<<LCA(root ,  l ,  h)->data<<endl;
+        Solution sol;
+        int ans = sol.LCA(root, l, h)->data;
+        cout<<ans<<endl;
     }
     return 1;
 }
 // } Driver Code Ends
-
-
-
-
-//Function to find the lowest common ancestor in a BST. 
-Node* LCA(Node *root, int n1, int n2)
-{
-   while(root!=NULL){
-       if(root->data<n1 and root->data<n2) root=root->right;
-       else if(root->data>n1 and root->data>n2) root=root->left;
-       else return root;
-   }
-   return NULL;
-}
-
-
