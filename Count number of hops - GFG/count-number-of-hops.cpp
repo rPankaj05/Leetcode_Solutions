@@ -9,10 +9,7 @@ class Solution
     public:
     //Function to count the number of ways in which frog can reach the top.
     long long countWays(int n)
-    {  if(n==1) return 1;
-       if(n==2) return 2;
-       if(n==3) return 4;
-       
+    { 
        vector<long long> dp(n,0);
        dp[0]=1;
        dp[1]=2;
@@ -26,6 +23,7 @@ class Solution
         
     }
 };
+
 
 
 //{ Driver Code Starts.
