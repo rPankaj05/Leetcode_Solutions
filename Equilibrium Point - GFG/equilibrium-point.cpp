@@ -10,20 +10,16 @@ class Solution{
     // a: input array
     // n: size of array
     int equilibriumPoint(long long a[], int n) {
-       int sum=0;
+       
+        // Your code here
+        long long tot_sum=0;
+        for(int i=0;i<n;i++) tot_sum+=a[i];
+        long long curr_sum=0;
         for(int i=0;i<n;i++){
-            sum+=a[i];
+            if(2*curr_sum == (tot_sum-a[i])) return i+1;
+            curr_sum+=a[i];
         }
-     
-      if(n==1) return 1; 
-      if(n==2) return -1;
-      int sum1=0;
-      for(int i=0;i<n;i++){
-          
-          if(sum1==(sum-a[i]-sum1)) return i+1;
-          sum1+=a[i];
-      }
-      return -1;
+        return -1;
     }
 
 };
