@@ -16,6 +16,7 @@ class Solution{
         sort(arr.begin(),arr.end());
         int n=arr.size();
         for(int i=0;i<n;i++){
+           if (i > 0 && arr[i] == arr[i-1])  continue;
             for(int j=i+1;j<n;j++){
                 int low=j+1, high=n-1;
                 while(low<high){
@@ -39,6 +40,7 @@ class Solution{
         return ans;
     }
 };
+
 
 //{ Driver Code Starts.
 int main() {
