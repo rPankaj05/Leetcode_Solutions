@@ -11,8 +11,8 @@ class Solution{
     {
         string ans;
         while(n > 0) {
-            n = n-1;
-            char ch =  'A' + n % 26;
+            n=n-1;
+            char ch =  'A' + n % 26 ;
             ans = ch + ans;
             n = n / 26;
         }
