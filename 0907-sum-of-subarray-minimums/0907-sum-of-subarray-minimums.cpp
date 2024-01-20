@@ -1,3 +1,26 @@
+//int mod=1e9+7;
+
+// class Solution {
+// public:
+//     int sumSubarrayMins(vector<int>& arr) {
+//         int n=arr.size();
+//         int ans = 0;
+//         for (int i = 0; i < n; i++) {
+//             int min_ele = arr[i];
+//             for (int j = i; j < n; j++) {
+//                 min_ele = min(min_ele, arr[j]);
+//                 ans += min_ele;
+//                 ans=ans%mod;
+//             }
+//         }
+//         return ans%mod;
+//     }
+// };
+
+
+
+
+
  void nextSmallerElement(int n,vector<int> &arr,vector<int> &nextSmaller){
     stack<int> st;
     for(int i=n-1;i>=0;i--){
@@ -44,23 +67,3 @@ public:
     }
 };
 
-
-
-
-// int mod=1e9+7;
-// class Solution {
-// public:
-//     int sumSubarrayMins(vector<int>& arr) {
-//         int n=arr.size();
-//         int ans = 0;
-//         for (int i = 0; i < n; i++) {
-//             int min_ele = arr[i];
-//             for (int j = i; j < n; j++) {
-//                 min_ele = min(min_ele, arr[j]);
-//                 ans += min_ele;
-//                 ans=ans%mod;
-//             }
-//         }
-//         return ans%mod;
-//     }
-// };
