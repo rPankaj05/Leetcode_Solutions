@@ -36,7 +36,7 @@ public:
            long long int leftd=i+1;
            if(nextSmaller[i]!=-1) rightd=nextSmaller[i]-i;
            if(prevSmaller[i]!=-1) leftd=i-prevSmaller[i];
-           ans+=((((rightd%mod)*(leftd%mod))%mod)*arr[i])%mod;
+           ans+=(((rightd*leftd)%mod)*arr[i])%mod;
            ans=ans%mod;
         }
         
