@@ -16,7 +16,6 @@ public:
         for (auto word:words){
            if(isValidString(v,word)) ans++; 
         }
-        cout<<"ans"<<" "<<ans;
         return ans;
     }
 };
